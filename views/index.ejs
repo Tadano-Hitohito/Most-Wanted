@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistema institucional para la gestión de oficiales">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/stylesheets/style.clean.css?v=cards-separate">
+  <link rel="stylesheet" href="/stylesheets/cards.css?v=cards-separate">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Ir al inicio">
+      <span class="brand-mark"><img src="/images/police.png" alt="Escudo institucional"></span>
+      <span class="brand-copy">
+        <strong>Sistema Institucional</strong>
+        <small>Gestión de oficiales</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a class="active" href="/">Inicio</a>
+      <a href="#modulos">Módulos</a>
+      <a href="#acceso">Acceso</a>
+    </nav>
+
+    <div class="status-badge">
+      <span></span>
+      Sistema activo
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="route-lines" aria-hidden="true">
+        <span class="route route-a"></span>
+        <span class="route route-b"></span>
+        <span class="route route-c"></span>
+        <span class="route route-d"></span>
+      </div>
+
+      <div class="hero-content">
+        <span class="eyebrow">Centro de gestión institucional</span>
+        <h1>Control de<br><em>oficiales</em></h1>
+        <p>
+          Registros organizados, accesos claros y una navegación rápida para administrar
+          la información institucional de manera organizada y centralizada.
+        </p>
+        <div class="hero-actions" id="acceso">
+          <a class="button button-primary" href="#modulos">Ver módulos <span>→</span></a>
+          <a class="button button-secondary" href="/api/users">Consultar registros</a>
+        </div>
+      </div>
+
+      <div class="command-panel">
+        <div class="panel-code">REGISTRO // 01</div>
+        <div class="command-core">
+          <span class="core-ring"><img src="/images/police.jpg" alt="Escudo institucional"></span>
+          <div>
+            <small>Estado institucional</small>
+            <strong>Operativo</strong>
+          </div>
+        </div>
+        <div class="panel-stats">
+          <div><strong>05</strong><span>Módulos</span></div>
+          <div><strong>24/7</strong><span>Acceso local</span></div>
+          <div><strong>DB</strong><span>SQLite</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="modules" id="modulos">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Panel principal</span>
+          <h2>Acciones disponibles</h2>
+        </div>
+        <span class="section-index">01 — 03</span>
+      </div>
+
+      <div class="module-grid">
+        <article class="module-card featured">
+          <div class="card-media media-register" aria-hidden="true"><span>01</span></div>
+          <div class="card-body">
+            <span class="card-status">Registro</span>
+            <h3>Registrar oficial</h3>
+            <p>Completa los datos personales, profesionales y administrativos en cinco módulos.</p>
+            <a href="/registrar">Iniciar registro <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="module-card">
+          <div class="card-media media-records" aria-hidden="true"><span>02</span></div>
+          <div class="card-body">
+            <span class="card-status">Consulta</span>
+            <h3>Ver expedientes</h3>
+            <p>Busca y revisa la información institucional de los registros existentes.</p>
+            <a href="/expedientes">Abrir registros <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="module-card">
+          <div class="card-media media-admin" aria-hidden="true"><span>03</span></div>
+          <div class="card-body">
+            <span class="card-status">Administración</span>
+            <h3>Administrar datos</h3>
+            <p>Organiza información académica, médica, familiar y de contacto de emergencia.</p>
+            <a href="/administrar">Gestionar datos <span>→</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Sistema institucional</span>
+    <strong>Gestión centralizada de oficiales</strong>
+  </footer>
+</body>
+</html>

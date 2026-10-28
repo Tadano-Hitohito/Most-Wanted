@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/stylesheets/style.clean.css?v=register">
+  <link rel="stylesheet" href="/stylesheets/register.css?v=1">
+</head>
+<body>
+  <header class="register-header">
+    <a class="register-brand" href="/" aria-label="Volver al inicio">
+      <span class="brand-mark">SI</span>
+      <span><strong>Registro institucional</strong><small>Alta de oficial</small></span>
+    </a>
+    <a class="back-link" href="/">← Volver al inicio</a>
+  </header>
+
+  <main class="register-page">
+    <section class="register-heading">
+      <div>
+        <span class="section-kicker">Nuevo expediente</span>
+        <h1>Registrar oficial</h1>
+        <p>Completa la información del funcionario en los módulos correspondientes.</p>
+      </div>
+      <div class="draft-status"><span></span> Nuevo registro</div>
+    </section>
+
+    <div class="registration-layout">
+      <nav class="module-tabs" aria-label="Módulos del expediente">
+        <button class="module-tab active" type="button" data-module="personal"><span>01</span><strong>Datos personales</strong></button>
+        <button class="module-tab" type="button" data-module="profesional"><span>02</span><strong>Datos profesionales</strong></button>
+        <button class="module-tab" type="button" data-module="vulnerable"><span>03</span><strong>Condición vulnerable</strong></button>
+        <button class="module-tab" type="button" data-module="medica"><span>04</span><strong>Condición médica</strong></button>
+        <button class="module-tab" type="button" data-module="emergencia"><span>05</span><strong>Contacto emergencia</strong></button>
+      </nav>
+
+      <form class="registration-form" action="/registrar" method="post">
+        <section class="form-module active" data-module="personal">
+          <div class="form-title"><span>01</span><div><h2>Datos personales</h2><p>Información básica y características del funcionario.</p></div></div>
+          <div class="form-grid">
+            <label>Cédula<input name="cedula" placeholder="V-00000000"></label>
+            <label>Apellidos<input name="apellidos" placeholder="Apellidos"></label>
+            <label>Nombres<input name="nombres" placeholder="Nombres"></label>
+            <label>Sexo<select name="sexo"><option value="">Seleccionar</option><option>Masculino</option><option>Femenino</option></select></label>
+            <label>Edad<input name="edad" type="number" min="0"></label>
+            <label>Fecha de nacimiento<input name="fecha_nacimiento" type="date"></label>
+            <label>Lugar de nacimiento<input name="lugar_nacimiento"></label>
+            <label>Partida de nacimiento<input name="partida_nacimiento"></label>
+            <label>Grupo sanguíneo<select name="grupo_sanguineo"><option value="">Seleccionar</option><option>O+</option><option>O-</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option></select></label>
+            <label>Estado civil<select name="estado_civil"><option value="">Seleccionar</option><option>Soltero/a</option><option>Casado/a</option><option>Divorciado/a</option><option>Viudo/a</option></select></label>
+            <label>RIF<input name="rif" placeholder="J-00000000-0"></label>
+            <label>Carnet de la Patria<input name="carnet_patria"></label>
+            <label class="span-2">Dirección<input name="direccion"></label>
+            <label>Correo<input name="correo" type="email"></label>
+            <label>Teléfono móvil<input name="telefono_movil"></label>
+            <label>Teléfono fijo<input name="telefono_fijo"></label>
+            <label>Centro de votación<input name="centro_votacion"></label>
+            <label>Talla de zapato<input name="talla_zapato"></label>
+            <label>Talla de camisa<input name="talla_camisa"></label>
+            <label>Talla de pantalón<input name="talla_pantalon"></label>
+            <label>Talla de cinturón<input name="talla_cinturon"></label>
+            <label>Talla de gorra<input name="talla_gorra" value="Talla Única" readonly></label>
+            <label>Estatura<input name="estatura" type="number" step="0.01"></label>
+            <label>Peso<input name="peso" type="number" step="0.01"></label>
+            <label>Contextura corporal<input name="contextura_corporal"></label>
+            <label>Tipo de piel<input name="tipo_piel"></label>
+            <label>Color de ojos<input name="color_ojos"></label>
+            <label>Tatuajes<input name="tatuajes"></label>
+            <label>Cicatriz<input name="cicatriz"></label>
+          </div>
+        </section>
+
+        <section class="form-module" data-module="profesional">
+          <div class="form-title"><span>02</span><div><h2>Datos profesionales y académicos</h2><p>Carrera, formación, credenciales y trayectoria institucional.</p></div></div>
+          <div class="form-grid">
+            <label>Rango<input name="rango"></label><label>Estatus actual<select name="estatus_actual"><option>Activo</option><option>Licencia</option><option>Comisión</option><option>Baja administrativa</option></select></label>
+            <label>Desarrollo de carrera<input name="desarrollo_carrera"></label><label>Credencial única<input name="credencial_unica"></label>
+            <label>Fecha de ingreso<input name="fecha_ingreso" type="date"></label><label>Curso de formación<input name="curso_formacion"></label>
+            <label>Ingreso administración pública<input name="fecha_ingreso_publica" type="date"></label><label>Años de servicio<input name="anos_servicio_publico"></label>
+            <label>Formación militar<input name="formacion_militar"></label><label>Documentación de ingreso<input name="documentacion_ingreso"></label>
+            <label>Tiempo curso de formación<input name="tiempo_curso_formacion"></label><label>Tiempo función policial<input name="tiempo_funcion_policial"></label>
+            <label>Nivel académico<input name="nivel_academico"></label><label>Grado académico<input name="grado_academico"></label>
+            <label>Lugar de estudio<input name="lugar_estudio"></label><label>Especialidades<input name="especialidades"></label>
+            <label>Estatus de estudio<input name="estatus_estudio"></label><label>Segunda carrera académica<input name="segunda_carrera"></label>
+            <label>Centro de formación<input name="centro_formacion"></label><label>Título de formación<input name="titulo_formacion"></label>
+            <label>Institución<input name="institucion"></label>
+          </div>
+        </section>
+
+        <section class="form-module" data-module="vulnerable">
+          <div class="form-title"><span>03</span><div><h2>Condición vulnerable</h2><p>Información de vivienda y núcleo familiar.</p></div></div>
+          <div class="form-grid">
+            <label>Área<select name="area"><option>Troncal</option><option>Urbana</option><option>Vial</option></select></label><label>Tipo de vivienda<input name="tipo_vivienda"></label>
+            <label>Gravedad del inmueble<input name="gravedad_inmueble"></label><label>Núcleos familiares<input name="nucleos_familiares" type="number"></label>
+            <label>Personas en la vivienda<input name="personas_vivienda" type="number"></label><label>Cantidad de hijos<input name="cantidad_hijos" type="number"></label>
+            <label>Personas mayores a cargo<input name="mayores_cargo" type="number"></label><label>Personas con condición médica<input name="personas_condicion_medica" type="number"></label>
+            <label class="span-2">Breve reseña de amenazas<textarea name="resena_amenaza" rows="4"></textarea></label>
+          </div>
+        </section>
+
+        <section class="form-module" data-module="medica">
+          <div class="form-title"><span>04</span><div><h2>Condición médica</h2><p>Información médica declarada por el funcionario.</p></div></div>
+          <div class="form-grid">
+            <label class="span-2">Patología médica<textarea name="patologia_medica" rows="5"></textarea></label>
+            <label class="span-2">Alergias a medicamentos o alimentos<textarea name="alergias" rows="5"></textarea></label>
+          </div>
+        </section>
+
+        <section class="form-module" data-module="emergencia">
+          <div class="form-title"><span>05</span><div><h2>Contacto de emergencia</h2><p>Persona a contactar ante una emergencia.</p></div></div>
+          <div class="form-grid">
+            <label class="span-2">Nombres y apellidos del familiar<input name="contacto_nombre"></label>
+            <label class="span-2">Dirección<textarea name="contacto_direccion" rows="4"></textarea></label>
+            <label>Teléfono<input name="contacto_telefono"></label><label>Parentesco<input name="contacto_parentesco"></label>
+          </div>
+        </section>
+
+        <div class="form-actions">
+          <button class="button-cancel" type="reset">Limpiar formulario</button>
+          <button class="button-save" type="submit">Guardar oficial</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    const tabs = document.querySelectorAll('.module-tab');
+    const modules = document.querySelectorAll('.form-module');
+    tabs.forEach((tab) => tab.addEventListener('click', () => {
+      tabs.forEach((item) => item.classList.remove('active'));
+      modules.forEach((module) => module.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector(`.form-module[data-module="${tab.dataset.module}"]`).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }));
+  </script>
+</body>
+</html>

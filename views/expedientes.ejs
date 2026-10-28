@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/stylesheets/style.clean.css?v=listado">
+  <link rel="stylesheet" href="/stylesheets/listado.css?v=1">
+</head>
+<body class="data-page">
+  <header class="data-header"><a href="/" class="data-brand"><span class="brand-mark">SI</span><span><strong>Sistema institucional</strong><small>Expedientes</small></span></a><a href="/" class="data-back">← Inicio</a></header>
+  <main class="data-main">
+    <section class="data-heading"><div><span>PANEL DE CONSULTA</span><h1>Expedientes</h1><p>Consulta los oficiales registrados y accede a su información institucional.</p></div><a class="primary-action" href="/registrar">+ Nuevo oficial</a></section>
+    <form class="search-panel" method="get"><input name="q" value="<%= search || '' %>" placeholder="Buscar por cédula, nombre o apellido"><button>Buscar</button></form>
+    <% if (oficiales.length === 0) { %><div class="empty-state"><strong>No se encontraron expedientes</strong><p>Registra un oficial o prueba otra búsqueda.</p></div><% } else { %>
+      <div class="officer-table-wrap"><table><thead><tr><th>Oficial</th><th>Cédula</th><th>Rango</th><th>Estado</th><th></th></tr></thead><tbody>
+      <% oficiales.forEach((oficial) => { %><tr><td><div class="officer-name"><span><%= oficial.nombres.charAt(0) %><%= oficial.apellidos.charAt(0) %></span><div><strong><%= oficial.nombres %> <%= oficial.apellidos %></strong><small><%= oficial.sexo || 'No especificado' %></small></div></div></td><td><%= oficial.cedula %></td><td><%= oficial.rango || 'Sin asignar' %></td><td><span class="status-pill"><%= oficial.estatus_actual || 'Activo' %></span></td><td><a class="row-action" href="/expedientes/<%= oficial.id %>">Ver expediente →</a></td></tr><% }) %>
+      </tbody></table></div>
+    <% } %>
+  </main>
+</body>
+</html>

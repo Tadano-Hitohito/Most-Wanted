@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/stylesheets/style.clean.css?v=admin">
+  <link rel="stylesheet" href="/stylesheets/listado.css?v=1">
+</head>
+<body class="data-page">
+  <header class="data-header"><a href="/" class="data-brand"><span class="brand-mark">SI</span><span><strong>Sistema institucional</strong><small>Administración</small></span></a><a href="/" class="data-back">← Inicio</a></header>
+  <main class="data-main">
+    <section class="data-heading"><div><span>GESTIÓN DE REGISTROS</span><h1>Administrar datos</h1><p>Selecciona un oficial para consultar y modificar sus datos.</p></div><a class="primary-action" href="/registrar">+ Nuevo oficial</a></section>
+    <div class="admin-summary"><strong><%= oficiales.length %></strong><span>oficiales registrados</span></div>
+    <% if (oficiales.length === 0) { %><div class="empty-state"><strong>No hay registros para administrar</strong><p>Comienza creando un nuevo oficial.</p></div><% } else { %>
+      <div class="officer-grid"><% oficiales.forEach((oficial) => { %><article class="officer-admin-card"><div class="officer-avatar"><%= oficial.nombres.charAt(0) %><%= oficial.apellidos.charAt(0) %></div><div><span class="status-pill"><%= oficial.estatus_actual || 'Activo' %></span><h2><%= oficial.nombres %> <%= oficial.apellidos %></h2><p><%= oficial.cedula %> · <%= oficial.rango || 'Rango sin asignar' %></p></div><a href="/administrar/<%= oficial.id %>" class="edit-action">Editar datos →</a></article><% }) %></div>
+    <% } %>
+  </main>
+</body>
+</html>
